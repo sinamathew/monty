@@ -20,10 +20,16 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	else
+	FILE *file = fopen(av[1], "r");
+	if (file == NULL)
 	{
-		printf("All good\n");
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
+		exit(EXIT_FAILURE);
 	}
+
+	/* File processing code goes here */
+
+	fclose(file);
 
 	return (0);
 }
