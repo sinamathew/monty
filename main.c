@@ -13,6 +13,7 @@
  */
 int main(int ac, char **av)
 {
+	FILE *file = fopen(av[1], "r");
 
 	if (ac != 2)
 	{
@@ -20,7 +21,6 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 
-	FILE *file = fopen(av[1], "r");
 	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
