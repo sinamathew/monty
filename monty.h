@@ -7,9 +7,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-/*---PROTOTYPES---*/
-
-
 
 /*---TYPEDEF---*/
 
@@ -42,7 +39,29 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct Bus - variables
+ * @argument: value
+ * @file_ptr: pointer to monty file
+ * @content_ptr: content
+ * @lifi_flag: flag change
+ *
+ */
+typedef struct Bus {
+	char *argument;
+	FILE *file_ptr;
+	char *content_ptr;
+	int lifi_flag;
+} bus_s
 
+extern bus_s bus;
+
+/*---PROTOTYPES---*/
+
+void free_s(stack_t *h);
+void add_dnode(stack_t **head, int n);
+void add_dnode_end(stack_t **head, int n);
+void _push(stack_t **h, unsigned int count);
 
 /*---GLB_VAR---*/
 
