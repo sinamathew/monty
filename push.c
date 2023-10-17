@@ -10,11 +10,11 @@ void _push(stack_t **h, unsigned int count)
 
 	if (bus.argument)
 	{
-		if (bus.arg[0] == '-')
+		if (bus.argument[0] == '-')
 			i++;
-		for (; bus.argument[j] != '\0'; i++)
+		for (; bus.argument[i] != '\0'; i++)
 		{
-			if (bus.argument[j] > 57 || bus.argument[j] < 48)
+			if (bus.argument[i] > 57 || bus.argument[i] < 48)
 				flag = 1;
 		}
 		if (flag == 1)
@@ -28,16 +28,15 @@ void _push(stack_t **h, unsigned int count)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", count);
 		fclose(bus.file_ptr);
 		free(bus.content_ptr);
 		free_s(*h);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(bus.arg);
+	n = atoi(bus.argument);
 	if (bus.lifi_flag == 0)
 		add_dnode(h, n);
 	else
 		add_dnode_end(h, n);
 }
-
