@@ -1,12 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define _POSIX_C_SOURCE 200809L
 
 /*---HEADERS---*/
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <sys/types.h>
+#include <fcntl.h>
+#include <ctype.h>
 
 /*---TYPEDEF---*/
 
@@ -52,9 +55,9 @@ typedef struct Bus {
 	FILE *file_ptr;
 	char *content_ptr;
 	int lifi_flag;
-} bus_s
+} bus_t;
 
-extern bus_s bus;
+extern bus_t bus;
 
 /*---PROTOTYPES---*/
 
@@ -62,7 +65,7 @@ void free_s(stack_t *h);
 void add_dnode(stack_t **head, int n);
 void add_dnode_end(stack_t **head, int n);
 void _push(stack_t **h, unsigned int count);
-
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 /*---GLB_VAR---*/
 
 
