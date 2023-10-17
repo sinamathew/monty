@@ -13,21 +13,19 @@
  */
 int main(int ac, char **av)
 {
-	FILE *file = fopen(av[1], "r");
+	FILE *file;
 
 	if (ac != 2)
-	{
-		printf("USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		usage_error();
 
+	file = fopen(av[1], "r");
 	if (file == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
-	}
+		file_error(av[1]);
 
 	/* File processing code goes here */
+	/**
+	 * don't know how to use the unknown_instruction() function yet
+	 */
 
 	fclose(file);
 
