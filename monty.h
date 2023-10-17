@@ -8,7 +8,9 @@
 #include <stdlib.h>
 
 /*---PROTOTYPES---*/
-
+void usage_error(void);
+void file_error(const char *file);
+void unknown_instruction(unsigned int line_no, const char *line);
 
 
 /*---TYPEDEF---*/
