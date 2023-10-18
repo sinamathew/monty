@@ -16,7 +16,7 @@ void free_s(stack_t *h)
 	}
 }
 /**
- * addnode - add node to the head stack
+ * add_dnode - add node to the head stack
  * @head: head of the stack
  * @n: new_value
  * Return: no return
@@ -29,7 +29,7 @@ void add_dnode(stack_t **head, int n)
 	temp = *head;
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
-	{ 
+	{
 		printf("Error\n");
 		exit(0);
 	}
