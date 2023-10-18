@@ -26,7 +26,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
 	if (content == NULL || *content == '\0'
 			|| strncmp(content, "#", 1) == 0)
-		return 0;
+		return (0);
 
 	op = strtok(content, " \n\t");
 	if (op && op[0] == '#')
