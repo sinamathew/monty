@@ -6,9 +6,11 @@
  * 
  * By: Sina
  */
-void _pstr(stack_t **h)
+void _pstr(stack_t **h, unsigned int n)
 {
 	stack_t *tmp = *h;
+
+	(void)n;
 
 	while (tmp && tmp->n != 0 && isprint(tmp->n))
 	{
