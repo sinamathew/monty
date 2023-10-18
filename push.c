@@ -40,3 +40,24 @@ void _push(stack_t **h, unsigned int count)
 	else
 		add_dnode_end(h, n);
 }
+
+
+/**
+ * _pall - prints stack
+ * @head: pointer to first node
+ * @n: unused
+ */
+void _pall(stack_t **head, unsigned int n)
+{
+	stack_t *temp;
+	(void)n;
+
+	temp = *head;
+	if (temp == NULL)
+		return;
+	while (temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
+}
