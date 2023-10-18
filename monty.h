@@ -73,6 +73,7 @@ void add_dnode(stack_t **head, int n);
 void add_dnode_end(stack_t **head, int n);
 void _push(stack_t **h, unsigned int count);
 void _pall(stack_t **head, unsigned int n);
+void _pint(stack_t **h, unsigned int n);
 void unknown_instruction(unsigned int line_no, const char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
