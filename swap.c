@@ -46,7 +46,7 @@ void _add(stack_t **h, unsigned int n)
 	}
 	if (length < 2)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", n);
+		fprintf(stderr, "L%d: can't add, stack too short\n", n);
 		fclose(bus.file_ptr);
 		free(bus.content_ptr);
 		free_s(*h);
