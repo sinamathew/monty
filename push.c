@@ -6,7 +6,7 @@
  */
 void _push(stack_t **h, unsigned int count)
 {
-	int i = 0, n, flag;
+	int i = 0, n, flag = 0;
 
 	if (bus.argument)
 	{
