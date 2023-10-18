@@ -7,9 +7,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <fcntl.h>
 #include <ctype.h>
+#include <fcntl.h>
+#include <sys/types.h>
+
 
 /*---TYPEDEF---*/
 
@@ -42,6 +43,7 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
 /**
  * struct Bus - variables
  * @argument: value
@@ -57,17 +59,20 @@ typedef struct Bus {
 	int lifi_flag;
 } bus_t;
 
+
+/*---GLB_VAR---*/
 extern bus_t bus;
 
-/*---PROTOTYPES---*/
 
+/*---PROTOTYPES---*/
+void usage_error(void);
 void free_s(stack_t *h);
+void file_error(const char *file);
 void add_dnode(stack_t **head, int n);
 void add_dnode_end(stack_t **head, int n);
 void _push(stack_t **h, unsigned int count);
+void unknown_instruction(unsigned int line_no, const char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
-/*---GLB_VAR---*/
-
 
 
 #endif /*MAIN_H*/

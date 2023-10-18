@@ -13,36 +13,34 @@ bus_t bus;
  *
  * By: Sina & Elmi
  */
-int main(int argc, char *argv[])
+int main(int ac, char *av[])
 {
 	char *content;
 	FILE *file;
 	size_t size = 0;
 	ssize_t read_line = 1;
 	stack_t *stack = NULL;
-	unsigned int counter = 0;
+	unsigned int count = 0;
 
-	if (argc != 2)
+	if (ac != 2)
 	{
-		printf("USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		usage_error();
 	}
-	file = fopen(argv[1], "r");
+	file = fopen(av[1], "r");
 	bus.file_ptr = file;
 	if (!file)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
+		file_error(av[1]);
 	}
 	while (read_line > 0)
 	{
 		content = NULL;
 		read_line = getline(&content, &size, file);
 		bus.content_ptr = content;
-		counter++;
+		count++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, counter, file);
+			execute(content, &stack, count, file);
 		}
 		free(content);
 	}
