@@ -33,6 +33,6 @@ void file_error(const char *file)
  */
 void unknown_instruction(unsigned int line_no, char *line)
 {
-	fprintf(stderr, "L%d: unknown instruction %s", line_no, line);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, line);
 	exit(EXIT_FAILURE);
 }
