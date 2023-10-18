@@ -41,7 +41,6 @@ void _push(stack_t **h, unsigned int count)
 		add_dnode_end(h, n);
 }
 
-
 /**
  * _pall - prints stack
  * @head: pointer to first node
@@ -60,4 +59,33 @@ void _pall(stack_t **head, unsigned int n)
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+}
+
+/**
+ * _div - divides the second top element by the top element of the stack
+ * @h: pointer to the head of the stack
+ * @n: current line number in the Monty bytecode
+ *
+ * By: Sina Mathew
+ */
+void _div(stack_t **h, unsigned int n)
+{
+	int result;
+
+	if (*h == NULL || (*h)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", n);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*h)->n == 0)
+	{
+		fprintf(stderr, "L%u: division by zero\n", n);
+		exit(EXIT_FAILURE);
+	}
+
+	result = (*h)->next->n / (*h)->n;
+	_pop(h, n);
+	(*h)->n = result;
+
 }

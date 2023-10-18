@@ -19,6 +19,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{"add", _add},
 				{"nop", _nop},
 				{"sub", _sub},
+				{"div", _div},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -37,7 +38,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		i++;
 	}
 	if (op && opst[i].opcode == NULL)
-	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+	{
+		unknown_instruction(counter, op);
 		fclose(file);
 		free(content);
 		free_s(*stack);

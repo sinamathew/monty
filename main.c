@@ -26,8 +26,10 @@ int main(int ac, char *av[])
 	{
 		usage_error();
 	}
+
 	file = fopen(av[1], "r");
 	bus.file_ptr = file;
+
 	if (!file)
 	{
 		file_error(av[1]);

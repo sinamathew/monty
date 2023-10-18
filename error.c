@@ -31,7 +31,7 @@ void file_error(const char *file)
  *
  * By: Sina Mathew
  */
-void unknown_instruction(unsigned int line_no, const char *line)
+void unknown_instruction(unsigned int line_no, char *line)
 {
 	fprintf(stderr, "L%d: unknown instruction %s", line_no, line);
 	exit(EXIT_FAILURE);

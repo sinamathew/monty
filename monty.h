@@ -79,6 +79,7 @@ void _swap(stack_t **h, unsigned int n);
 void _add(stack_t **h, unsigned int n);
 void _nop(stack_t **h, unsigned int n);
 void _sub(stack_t **h, unsigned int n);
+void _div(stack_t **h, unsigned int n);
 void unknown_instruction(unsigned int line_no, const char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
