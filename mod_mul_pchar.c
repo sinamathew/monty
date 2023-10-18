@@ -32,12 +32,13 @@ void _mod(stack_t **h, unsigned int n)
  */
 void _mul(stack_t **h, unsigned int n)
 {
-	if (*h == NULL || (*stack)->next == NULL)
+	if (*h == NULL || (*h)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n" n);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", n);
 		exit(EXIT_FAILURE);
 	}
-	(*h)->next->n *n (*h)->n;
+
+	(*h)->next->n *= (*h)->n;
 	_pop(h, n);
 }
 
