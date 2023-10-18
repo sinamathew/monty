@@ -41,3 +41,25 @@ void _pop(stack_t **stack, unsigned int line_num)
 	free(temp);
 }
 
+/**
+ * _sub - subtracts the top element of the stack from the second top element
+ * of the stack
+ * @h: points to pointer that points to the head of the element
+ * @n: line number
+ *
+ * By: Sina
+ */
+void _sub(stack_t **h, unsigned int n)
+{
+	int result;
+
+	if (*h == NULL || (*h)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", n);
+		exit(EXIT_FAILURE);
+	}
+
+	result = (*h)->next->n - (*h)->n;
+	_pop(h, n);
+	(*h)->n = result;
+}
