@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+/*---MACRO---*/
 #define _POSIX_C_SOURCE 200809L
+#define MAX 50
 
 /*---HEADERS---*/
 #include <stdio.h>
