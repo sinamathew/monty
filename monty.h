@@ -80,6 +80,9 @@ void _add(stack_t **h, unsigned int n);
 void _nop(stack_t **h, unsigned int n);
 void _sub(stack_t **h, unsigned int n);
 void _div(stack_t **h, unsigned int n);
+void _mod(stack_t **h, unsigned int n);
+void _mul(stack_t **h, unsigned int n);
+void _pchar(stack_t **h, unsigned int n);
 void unknown_instruction(unsigned int line_no, char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 

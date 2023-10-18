@@ -20,10 +20,17 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 				{"nop", _nop},
 				{"sub", _sub},
 				{"div", _div},
+				{"mul", _mul},
+				{"mod", _mod},
+				{"pchar", _pchar},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
 	char *op;
+
+	if (content == NULL || *content == '\0'
+			|| strncmp(content, "#", 1) == 0)
+		return 0;
 
 	op = strtok(content, " \n\t");
 	if (op && op[0] == '#')
