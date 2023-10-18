@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
 * free_s - frees a doubly linked list
 * @h: head of the stack
@@ -15,6 +16,7 @@ void free_s(stack_t *h)
 		h = temp;
 	}
 }
+
 /**
  * add_dnode - add node to the head stack
  * @head: head of the stack
@@ -40,6 +42,7 @@ void add_dnode(stack_t **head, int n)
 	newnode->prev = NULL;
 	*head = newnode;
 }
+
 /**
  * add_dnode_end - add node to the tail stack
  * @n: new_value
@@ -63,7 +66,7 @@ void add_dnode_end(stack_t **head, int n)
 		while (temp->next)
 			temp = temp->next;
 	}
-	if (!temp)
+	else if (!temp)
 	{
 		*head = newnode;
 		newnode->prev = NULL;
