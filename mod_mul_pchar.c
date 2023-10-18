@@ -41,3 +41,28 @@ void _mul(stack_t **h, unsigned int n)
 	_pop(h, n);
 }
 
+/**
+ * _pchar - prints the character at the top of the stack as an ASCII character
+ * @h: pointer to the head of the stack
+ * @n: current line number in the Monty bytecode
+ *
+ * By: Sina
+ */
+void _pchar(stack_t **h, unsigned int n)
+{
+	int ascii_value;
+
+	if (*h == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", n);
+		exit(EXIT_FAILURE);
+	}
+	ascii_value = (*h)->n;
+	if (ascii_value < 32 || ascii_value > 126)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", n);
+		exit(EXIT_FAILURE);
+	}
+	putchar(ascii_value);
+	putchar('\n');
+}
