@@ -90,5 +90,17 @@ void _pchar(stack_t **h, unsigned int n);
 void unknown_instruction(unsigned int line_no, char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
+/*---ARRAYS---*/
+        instruction_t opst[MAX] = {
+		{"push", _push}, {"pall", _pall},
+		{"pint", _pint}, {"pop", _pop},
+		{"swap", _swap}, {"add", _add},
+		{"nop", _nop}, {"sub", _sub},
+		{"div", _div}, {"mul", _mul},
+		{"mod", _mod}, {"pchar", _pchar},
+		{"pstr", _pstr},
+		{NULL, NULL}
+	};
+
 
 #endif /*MAIN_H*/
