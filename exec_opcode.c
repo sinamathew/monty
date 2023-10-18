@@ -28,7 +28,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	unsigned int i = 0;
 	char *op;
 
-	if (content == NULL || *content == '\0' || content == '#')
+	if (content == NULL || *content == '\0'
+			|| strncmp(content, "#", 1) == 0)
 		return 0;
 
 	op = strtok(content, " \n\t");
