@@ -1,16 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
+#define _POSIX_C_SOURCE 200809L
 
 /*---HEADERS---*/
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-
-/*---PROTOTYPES---*/
-void usage_error(void);
-void file_error(const char *file);
-void unknown_instruction(unsigned int line_no, const char *line);
+#include <ctype.h>
+#include <fctnl.h>
+#include <sys/types.h>
 
 
 /*---TYPEDEF---*/
@@ -45,9 +44,35 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct Bus - variables
+ * @argument: value
+ * @file_ptr: pointer to monty file
+ * @content_ptr: content
+ * @lifi_flag: flag change
+ *
+ */
+typedef struct Bus {
+	char *argument;
+	FILE *file_ptr;
+	char *content_ptr;
+	int lifi_flag;
+} bus_t;
+
 
 /*---GLB_VAR---*/
+extern bus_t bus;
 
+
+/*---PROTOTYPES---*/
+void usage_error(void);
+void free_s(stack_t *h);
+void file_error(const char *file);
+void add_dnode(stack_t **head, int n);
+void add_dnode_end(stack_t **head, int n);
+void _push(stack_t **h, unsigned int count);
+void unknown_instruction(unsigned int line_no, const char *line);
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
 
 #endif /*MAIN_H*/
