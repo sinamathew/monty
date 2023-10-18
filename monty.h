@@ -68,6 +68,7 @@ extern bus_t bus;
 /*---PROTOTYPES---*/
 void usage_error(void);
 void free_s(stack_t *h);
+void _pstr(stack_t **h);
 void file_error(const char *file);
 void add_dnode(stack_t **head, int n);
 void add_dnode_end(stack_t **head, int n);
