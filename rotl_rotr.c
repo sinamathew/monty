@@ -7,21 +7,21 @@
  */
 void _rotl(stack_t **h, unsigned int n)
 {
-	stack_t *temp, *j;
+	stack_t *temp;
 	(void) n;
 
 	temp = *h;
 	if (*h == NULL || (*h)->next == NULL)
 		return;
-	j = (*h)->next;
-	j = (*h)->prev;
 
+	temp = *h;
 	while (temp->next != NULL)
 		temp = temp->next;
+
 	temp->next = *h;
 	(*h)->next = NULL;
 	(*h)->prev = temp;
-	(*h) = j;
+	(*h) = temp;
 }
 /**
   *_rotr- rotates the stack to the bottom
@@ -31,21 +31,19 @@ void _rotl(stack_t **h, unsigned int n)
  */
 void _rotr(stack_t **h, unsigned int n)
 {
-	stack_t *c;
+	stack_t *temp;
 	(void) n;
 
-	c = *h;
 	if (*h == NULL || (*h)->next == NULL)
-	{
 		return;
-	}
-	while (c->next)
-	{
-		c = c->next;
-	}
-	c->next = *h;
-	c->prev->next = NULL;
-	c->prev = NULL;
-	(*h)->prev = c;
-	(*h) = c;
+
+	temp = *h;
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	(*h)->prev = temp;
+	temp->next = *h;
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	(*h) = temp;
 }
