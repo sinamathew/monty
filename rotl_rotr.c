@@ -17,6 +17,7 @@ void _rotl(stack_t **h, unsigned int n)
 	temp = *h;
 	while (temp->next != NULL)
 		temp = temp->next;
+
 	temp->next = *h;
 	(*h)->next = NULL;
 	(*h)->prev = temp;
@@ -33,18 +34,16 @@ void _rotr(stack_t **h, unsigned int n)
 	stack_t *c;
 	(void) n;
 
-	c = *h;
 	if (*h == NULL || (*h)->next == NULL)
-	{
 		return;
-	}
-	while (c->next)
-	{
-		c = c->next;
-	}
-	c->next = *h;
-	c->prev->next = NULL;
-	c->prev = NULL;
-	(*h)->prev = c;
-	(*h) = c;
+
+	temp = *h;
+	while (temp->next != NULL)
+		temp = temp->next;
+
+	(*h)->prev = temp;
+	temp->next = *h;
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	(*h) = temp;
 }
