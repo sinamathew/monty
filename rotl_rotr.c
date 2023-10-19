@@ -31,7 +31,7 @@ void _rotl(stack_t **h, unsigned int n)
  */
 void _rotr(stack_t **h, unsigned int n)
 {
-	stack_t *c;
+	stack_t *temp;
 	(void) n;
 
 	if (*h == NULL || (*h)->next == NULL)
