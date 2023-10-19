@@ -88,6 +88,7 @@ void _mod(stack_t **h, unsigned int n);
 void _mul(stack_t **h, unsigned int n);
 void _pchar(stack_t **h, unsigned int n);
 void _rotl(stack_t **h, unsigned int n);
+void _rotr(stack_t **h, unsigned int n);
 void unknown_instruction(unsigned int line_no, char *line);
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file);
 
